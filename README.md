@@ -1,4 +1,10 @@
 docker-mercury-stable
 =====================
 
-Create a fully configured Mercury compiler from the latest stable release, supporting Java, C# and Erlang
+Building a complete Mercury compiler using [sebgod/docker-mercury-common](https://github.com/sebgod/docker-mercury-common/).
+
+Enabled grades are:
+ - asm_fast.gc + debug + stseg
+ - java
+ - csharp
+ - erlang
