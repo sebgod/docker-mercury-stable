@@ -1,11 +1,12 @@
 FROM sebgod/mercury-deps:latest
 MAINTAINER Sebastian Godelet <sebastian.godelet+github@gmail.com>
+RUN apt-get install -y curl
 ENV MERCURY_STABLE_VERSION rotd-2014-04-01
 WORKDIR /
 RUN mkdir -p stable
 WORKDIR stable
-RUN wget -N http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz
-RUN tar xf mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz && mv mercury-srcdist-${MERCURY_STABLE_VERSION} src-stable
+RUN curl -L http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz | tar xz
+RUN mv mercury-srcdist-${MERCURY_STABLE_VERSION} src-stable
 WORKDIR src-stable
 RUN ./configure --enable-java-grade --enable-csharp-grade --enable-erlang-grade
 RUN make MMAKEFLAGS=${PARALLEL}
