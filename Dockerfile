@@ -5,7 +5,7 @@ ENV MERCURY_STABLE_VERSION rotd-2014-04-01
 WORKDIR /
 RUN mkdir -p stable
 WORKDIR stable
-RUN curl -L http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz | tar xz
+RUN curl -s -L http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz | tar xz
 RUN mv mercury-srcdist-${MERCURY_STABLE_VERSION} src-stable
 WORKDIR src-stable
 RUN sh configure --enable-java-grade --enable-csharp-grade --enable-erlang-grade
