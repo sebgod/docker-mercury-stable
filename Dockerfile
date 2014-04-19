@@ -8,7 +8,7 @@ WORKDIR stable
 RUN curl -L http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz | tar xz
 RUN mv mercury-srcdist-${MERCURY_STABLE_VERSION} src-stable
 WORKDIR src-stable
-RUN ./configure --enable-java-grade --enable-csharp-grade --enable-erlang-grade
+RUN sh configure --enable-java-grade --enable-csharp-grade --enable-erlang-grade
 RUN make MMAKEFLAGS=${PARALLEL}
 RUN make tags
 RUN make MMAKEFLAGS=${PARALLEL} install
