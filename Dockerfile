@@ -1,4 +1,4 @@
-FROM sebgod/mercury-common:latest
+FROM sebgod/mercury-deps:latest
 MAINTAINER Sebastian Godelet <sebastian.godelet+github@gmail.com>
 ENV MERCURY_STABLE_VERSION rotd-2014-04-01
 WORKDIR /
