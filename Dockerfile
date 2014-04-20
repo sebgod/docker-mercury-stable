@@ -9,6 +9,7 @@ RUN curl -s -L http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_V
 RUN mv mercury-srcdist-${MERCURY_STABLE_VERSION} src-stable
 WORKDIR src-stable
 # --enable-java-grade is disabled, since it doesn't build on trusted build so far
+RUN ls -la
 RUN sh configure --enable-csharp-grade --enable-erlang-grade
 RUN make MMAKEFLAGS=${PARALLEL}
 RUN make tags
