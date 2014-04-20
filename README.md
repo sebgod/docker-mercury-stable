@@ -10,3 +10,4 @@ Enabled grades are:
  - asm_fast.gc + debug + stseg
  - csharp
  - erlang
+ - java
