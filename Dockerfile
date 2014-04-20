@@ -6,7 +6,9 @@ WORKDIR /
 RUN mkdir -p stable
 WORKDIR stable
 RUN curl -s -L http://dl.mercurylang.org/rotd/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz | tar xz
+RUN ls -la
 RUN mv mercury-srcdist-${MERCURY_STABLE_VERSION} src-stable
+RUN ls -la
 WORKDIR src-stable
 # --enable-java-grade is disabled, since it doesn't build on trusted build so far
 RUN ls -la
