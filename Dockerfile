@@ -1,6 +1,5 @@
 FROM sebgod/mercury-deps:latest
 MAINTAINER Sebastian Godelet <sebastian.godelet+github@gmail.com>
-RUN apt-get install -y curl
 ENV MERCURY_STABLE_VERSION rotd-2014-04-01
 WORKDIR /
 RUN mkdir -p stable
