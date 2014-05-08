@@ -6,6 +6,7 @@ The repository is a trusted build [sebgod/mercury-stable](https://index.docker.i
 
 Current stable base:
  - ROTD (release of the day): 2014-04-01
+
 Enabled grades are:
  - asm_fast.gc + debug + stseg
  - csharp
