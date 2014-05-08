@@ -1,7 +1,7 @@
 mercury-stable
 ==============
 
-Building a complete Mercury compiler using [git:sebgod/docker-mercury-deps](https://github.com/sebgod/docker-mercury-deps/).
+Building a complete Mercury compiler using [git:sebgod/docker-mercury-bootstrap](https://github.com/sebgod/docker-mercury-bootstrap/).
 The repository is a trusted build [sebgod/mercury-stable](https://index.docker.io/u/sebgod/mercury-stable/) in the [docker.io index](https://index.docker.io).
 
 Current stable base:
