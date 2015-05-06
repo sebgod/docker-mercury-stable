@@ -1,7 +1,18 @@
 FROM sebgod/mercury-bootstrap:latest
-MAINTAINER Sebastian Godelet <sebastian.godelet+github@gmail.com>
-ENV MERCURY_PREFIX rotd
-ENV MERCURY_STABLE_VERSION rotd-2014-04-01
-RUN ( curl -s -L http://dl.mercurylang.org/${MERCURY_PREFIX}/mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz | tar xz --strip 1 ) && sh configure --enable-csharp-grade --enable-erlang-grade --enable-java-grade && make PARALLEL=${PARALLEL}
-RUN make PARALLEL=${PARALLEL} install
-ENV PATH /usr/local/mercury-${MERCURY_STABLE_VERSION}/bin:$PATH_ORIG
+MAINTAINER Sebastian Godelet <sebastian.godelet@outlook.com>
+ENV MERCURY_STABLE_VERSION 14_01.1
+ENV MERCURY_STABLE_TARGZ mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz
+ADD $MERCURY_RELEASE_URL/$MERCURY_STABLE_TARGZ /tmp/tarballs/
+ENV MERCURY_STABLE_PREFIX /usr/local/mercury-stable
+ENV PATH ${MERCURY_STABLE_PREFIX}/bin:$PATH_ORIG
+WORKDIR /tmp/mercury
+RUN tar --strip 1 -x -v -f /tmp/tarballs/$MERCURY_STABLE_TARGZ \
+    && aclocal -I m4 \
+    && autoconf \
+    && sh configure --enable-libgrades=asm_fast.gc \
+        --enable-new-mercuryfile-struct \
+        --prefix=$MERCURY_STABLE_PREFIX \
+    && make \
+    && make install \
+    && rm -fR *
+ENTRYPOINT ["mmc"]
