@@ -10,6 +10,8 @@ RUN tar --strip 1 -x -v -f /tmp/tarballs/$MERCURY_STABLE_TARGZ \
     && aclocal -I m4 \
     && autoconf \
     && sh configure --enable-libgrades=asm_fast.gc \
+        --disable-symlinks \
+        --with-default-grade=asm_fast.gc \
         --enable-new-mercuryfile-struct \
         --prefix=$MERCURY_STABLE_PREFIX \
     && make \
