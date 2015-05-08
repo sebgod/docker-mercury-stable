@@ -1,7 +1,7 @@
 # vim: ft=Dockerfile tw=78 ts=4 sw=4 et
 FROM sebgod/mercury-bootstrap:latest
 MAINTAINER Sebastian Godelet <sebastian.godelet@outlook.com>
-ENV MERCURY_STABLE_VERSION 14.01.1
+ENV MERCURY_STABLE_VERSION <VERSION>
 ENV MERCURY_STABLE_TARGZ mercury-srcdist-${MERCURY_STABLE_VERSION}.tar.gz
 ADD $MERCURY_RELEASE_URL/$MERCURY_STABLE_TARGZ $MERCURY_TMP/tarballs/
 ENV MERCURY_STABLE_PREFIX /usr/local/mercury-stable
