@@ -4,6 +4,7 @@ FROM sebgod/mercury-bootstrap:${MERCURY_BOOTSTRAP_TAG} as bootstrap
 
 FROM sebgod/mercury-depend:${MERCURY_BOOTSTRAP_TAG}
 
+ENV MERCURY_TMP /var/tmp
 ARG MERCURY_DOWNLOAD_URL=http://dl.mercurylang.org
 ARG MERCURY_STABLE_VERSION=14.01.1
 ARG MERCURY_STABLE_DEFAULT_GRADE=asm_fast.gc
@@ -23,7 +24,7 @@ RUN curl -sL $MERCURY_DOWNLOAD_URL/release/$MERCURY_STABLE_TARGZ | \
     tar --strip 1 -z -x \
     && aclocal -I m4 \
     && autoconf \
-    && (sh configure \
+    && (./configure \
             --enable-libgrades=$MERCURY_STABLE_DEFAULT_GRADE \
             --with-default-grade=$MERCURY_STABLE_LIBGRADES \
             --prefix=$MERCURY_STABLE_PREFIX > build.log 2>&1 \
